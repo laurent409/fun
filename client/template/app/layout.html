@@ -1,0 +1,16 @@
+<head>
+    <title>Fun app</title>
+</head>
+
+<template name="layout">
+  {{>navbar}}
+    <div class="wrapper">
+        <div class="box">
+            <div id="main">
+                <div>
+                  {{>yield}}
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
