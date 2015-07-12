@@ -1,0 +1,2 @@
+)]}'
+{"version":3,"file":"/packages/cfs:filesystem.js","sources":["cfs:filesystem/filesystem.client.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,qC;AACA,+C;AACA,kB;AACA,6C;AACA,iE;;AAEA,+C;AACA,kC;AACA,K;AACA,E","sourcesContent":["// On the client we have just a shell\nFS.Store.FileSystem = function(name, options) {\n  var self = this;\n  if (!(self instanceof FS.Store.FileSystem))\n    throw new Error('FS.Store.FileSystem missing keyword \"new\"');\n\n  return new FS.StorageAdapter(name, options, {\n    typeName: 'storage.filesystem'\n  });\n};\n"]}
