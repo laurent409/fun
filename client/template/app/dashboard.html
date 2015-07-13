@@ -1,5 +1,14 @@
 <template name="dashboard">
     <div class="container">
-      <h1>Welcome back {{username}}</h1>
+      <div class="col-md-12">
+        <h2>Welcome back {{currentUser.username}}.</h2>
+        <div class="jumbotron col-md-8 col-md-offset-2">
+          <input type="text" class="jumbotron form-control col-md-8" name="postFromProfil" placeholder="what's on your mind ?">
+          <input type="button" class="btn btn-primary col-md-4" value="let's post !">
+        </div>
+      </div>
+      <div class="col-md-12">
+        <h2>What happened in your network ?</h2>
+      </div>
     </div>
 </template>

@@ -1,13 +1,65 @@
 <template name="myprofile">
   <div class="container">
-    <div class="jumbotron">
-      <h2>My profile page</h2>
-    </div>
     <div class="jumbotron col-md-8">
-      <h2>Your timeline here</h2>
+      <input type="text" class="jumbotron form-control col-md-8" name="postFromProfil" placeholder="hey {{getConnectedUser}}, what's on you mind ?">
+      <input type="button" class="btn btn-primary col-md-4" value="let's post !">
     </div>
     <div class="jumbotron col-md-4">
-      <h2>Your informations here</h2>
+
+      <div class="col-md-12" id="profil-picture">
+        {{# if checkPicture}}
+        <img src="{{getUserInfos.urlAvatar}}" id="profile_picture" class="col-md-12"/>
+        {{else}}
+        <img src="pictures/default-user.png" id="profile_picture" class="col-md-12"/>
+        {{/if}}
+        <p class="text-center"><b>{{getConnectedUser}}</b></p>
+      </div>
+      <div>
+        <div class="col-md-12" id="description">
+          {{#if getUserInfos.description}}
+          <p class="text-center">
+            {{getUserInfos.description}}
+          </p>
+        {{else}}
+          <p class="text-center">
+            this user hasn't a description
+          </p>
+        {{/if}}
+        </div>
+        <div class="col-md-4" id="post">
+          {{#if getNbPostsFromSelectedUser}}
+          <p class="text-center">
+            {{getNbPostsFromSelectedUser}}<br>posts
+          </p>
+          {{else}}
+          <p class="text-center">
+            0<br>posts
+          </p>
+          {{/if}}
+        </div>
+        <div class="col-md-4" id="followers">
+          {{#if getNbFollowers}}
+          <p class="text-center">
+            {{getNbFollowers}}<br>followers
+          </p>
+          {{else}}
+          <p class="text-center">
+            0<br>followers
+          </p>
+          {{/if}}
+        </div>
+        <div class="col-md-4" id="following">
+          {{#if getNbFollowing}}
+          <p class="text-center">
+            {{getNbFollowing}}<br>following
+          </p>
+          {{else}}
+          <p class="text-center">
+           0<br>following
+          </p>
+          {{/if}}
+        </div>
+      </div>
     </div>
   </div>
 </template>
