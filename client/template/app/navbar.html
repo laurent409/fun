@@ -1,22 +1,28 @@
 <template name="navbar">
-    <div class="navbar navbar-inverse">
-        <div class="container">
+  <div class="navbar navbar-inverse">
+      <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">Social.Network</a>
+                <a class="navbar-brand" href="/">S.Network</a>
                 {{#if getConnectedUser}}
                 <a class="navbar-brand" href="/dashboard"><span class="glyphicon glyphicon-home"></span></a>
                 <!-- <input type="text" name="name" placeholder="search user"> -->
                 <!-- <a href="#" class="btn"><span class="glyphicon glyphicon-search"></span></a> -->
-                <!-- <form class="navbar-form navbar-left" role="search">
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="search user">
-                  </div>
-                  <button type="submit" class="btn btn-default">go</button>
-                </form> -->
+                <!-- <div class="form-group"> -->
+                <a  class="navbar-brand" href="/chat"><span class="mdi-communication-forum icon-navbar"></span></a>
+                <form class="navbar-form navbar-left" role="search">
+                    <input type="text" class="form-control col-lg-8" placeholder="search user">
+                    <!-- <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button> -->
+                </form>
+                <!-- </div> -->
                 {{/if}}
             </div>
             <div class="navbar-collapse collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav navbar-right">
+                  <!-- <a  class="navbar-brand" href="/settings"><i class="mdi-action-settings"></i></a> -->
+                  {{#if getConnectedUser}}
+                  <a class="navbar-brand" href="/settings"><span class="glyphicon glyphicon-cog icon-settings"></span></a>
+                  <a class="navbar-brand" href="/profile/{{getConnectedUser}}"><span class="mdi-action-account-box icon-navbar"></span></a>
+                  {{/if}}
                   {{> accountButtons}}
                 </ul>
             </div>

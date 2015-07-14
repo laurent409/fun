@@ -1,14 +1,19 @@
 <template name="dashboard">
     <div class="container">
       <div class="col-md-12">
-        <h2>Welcome back {{currentUser.username}}.</h2>
+        <h2>Welcome back {{currentUser.username}} <i class="mdi-social-mood"></i></h2>
         <div class="jumbotron col-md-8 col-md-offset-2">
-          <input type="text" class="jumbotron form-control col-md-8" name="postFromProfil" placeholder="what's on your mind ?">
-          <input type="button" class="btn btn-primary col-md-4" value="let's post !">
+          <form class="" id="dashboard_submit_post" action="#" method="get">
+            <input type="text" class="jumbotron form-control col-md-8" id="content_dashboard" name="postFromProfil" placeholder="what's on your mind ?">
+            <input type="button" id="dashboard_click_post" class="btn btn-primary col-md-4" value="let's post !">
+          </form>
         </div>
       </div>
       <div class="col-md-12">
-        <h2>What happened in your network ?</h2>
+        <h2> <i class="mdi-social-group"></i> What happened in your network ?</h2>
+        {{#each getPosts}}
+          {{> post}}
+        {{/each}}
       </div>
     </div>
 </template>
