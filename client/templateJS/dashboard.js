@@ -23,7 +23,7 @@ Template.dashboard.events({
         var post = {
             content: $('#content_dashboard').val()
         };
-        console.log("('#content_dashboard').val() : "+$('#content_dashboard').val());
+        // console.log("('#content_dashboard').val() : "+$('#content_dashboard').val());
 
         $('#content_dashboard').val("");
 
@@ -32,7 +32,7 @@ Template.dashboard.events({
                 alert(error.reason);
             }
         });
-        console.log("post : "+post);
+        // console.log("post : "+post);
     }
 
 });

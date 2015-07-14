@@ -1,116 +1,97 @@
 <template name="profile">
   <div class="container">
-    <div class="jumbotron col-md-8">
-      <form class="" id="profile_submit_post" action="#" method="get">
-        <input type="text" class="jumbotron form-control col-md-8" id="content_profile" name="postFromProfil" placeholder="hey {{getConnectedUser}}, what's on you mind ?">
-        <input type="button" class="btn btn-primary col-md-4" id="profile_click_post"  value="let's post !">
-      </form>
-    </div>
-    <div>
-          {{#each getPosts}}
-            <div class="jumbotron col-md-8">
-              <div class="profile_gabs background_radius content_shadow">
-                  <div class="timeline_photo">
-                      {{# if checkPicture}}
-                          <img src="photos/default-user.png" alt="minitiature_photo" class="mini_photo"/>
-                      {{else}}
-                          <img src="{{getUserInfos.urlAvatar}}" alt="minitiature_photo" class="mini_photo"/>
-                      {{/if}}
-                  </div>
-
-                  <div class="gabs_home">
-                      <h1 class="gabs_name">{{author}}</h1>
-                      <h2 class="gabs_time italique">{{livestamp submitted}}</h2>
-                      <div class="gabs_text">
-                          <p class="content_gabs">{{content}}</p>
-                      </div>
-                      <div class="like_edit_delete">
-                          {{#unless ownProfile}}
-                              {{#unless alreadyLiked}}
-                                  <a href="#" id="like" class="a_blue">
-                                      <div class="like_profile">
-                                          <p class="bold">{{nbLikes}}</p>
-                                      </div>
-                                  </a>
-                              {{else}}
-                                  <a href="#" id="like" class="a_blue">
-                                      <div class="dislike_profile">
-                                          <p class="bold">{{nbLikes}}</p>
-                                      </div>
-                                  </a>
-                              {{/unless}}
-                          {{else}}
-                              <!--<a href="#" id="like" class="a_blue">-->
-                                  <div class="like_profile">
-                                      <p class="bold">{{nbLikes}}</p>
-                                  </div>
-                              <!--</a>-->
-                              <a href="#" id="delete" class="a_blue">
-                                  <div class="delete_profile">
-                                      <p class="bold">Delete</p>
-                                  </div>
-                              </a>
-                          {{/unless}}
-                      </div>
-                  </div>
+    <div class="col-md-8">
+      <div class="jumbotron col-md-12">
+        <form class="" id="profile_submit_post" action="#" method="get">
+          <input type="text" class="jumbotron form-control col-md-8" id="content_profile" name="postFromProfil" placeholder="hey {{getConnectedUser}}, what's on you mind ?">
+          <input type="button" class="btn btn-primary col-md-4" id="profile_click_post"  value="let's post !">
+        </form>
+      </div>
+      {{#each getPosts}}
+        <div class="jumbotron col-md-12">
+          <div class="profile_gabs background_radius content_shadow">
+              <div class="dashboard_profile-picture-post">
+                  {{# if checkPicture}}
+                      <img src="/pictures/default-user.png" alt="minitiature_photo" class="profile-picture-post"/>
+                  {{else}}
+                      <img src="{{getUserInfos.urlAvatar}}" alt="minitiature_photo" class="profile-picture-post"/>
+                  {{/if}}
               </div>
 
-            </div>
-          {{/each}}
+              <div class="home">
+                <h2 class="post_name">{{author}}</h2>
+                <i>{{livestamp submitted}}</i>
+                <div class="post_text">
+                    <p class="post_content">{{content}}</p>
+                </div>
+                  <a href="#" id="delete" class="a_blue">
+                      <div class="delete_profile">
+                          <p class="bold">Delete</p>
+                      </div>
+                  </a>
+              </div>
+          </div>
+        </div>
+      {{/each}}
     </div>
-    <div class="jumbotron col-md-4 container">
-      <div class="col-md-12" id="profil-picture">
-        {{# if checkPicture}}
-          <img src="{{getUserInfos.urlAvatar}}" id="profile_picture" class="col-md-12"/>
-        {{else}}
-          <img src="/pictures/default-user.png" id="profile_picture" class="col-md-12"/>
-        {{/if}}
-        <p class="text-center"><b>{{getUsername}}</b></p>
-      </div>
-      <div>
-        <div class="col-md-12" id="description">
-          {{#if getUserInfos.description}}
-          <p class="text-center">
-            {{getUserInfos.description}}
-          </p>
-        {{else}}
-          <p class="text-center">
-            ({{getUsername}} hasn't a description)
-          </p>
-        {{/if}}
-        </div>
-        <div class="col-md-4" id="post">
-          {{#if getNbPostsFromSelectedUser}}
-          <p class="text-center">
-            {{getNbPostsFromSelectedUser}}<br>posts
-          </p>
+    <div class="col-md-4">
+      <div class="jumbotron col-md-12">
+        <div class="col-md-12" id="profil-picture">
+          {{# if checkPicture}}
+          <img src="/pictures/default-user.png" id="profile_picture" class="col-md-12 profile-picture"/>
           {{else}}
-          <p class="text-center">
-            0<br>posts
-          </p>
+            <img src="{{getUserInfos.urlAvatar}}" id="profile_picture" class="col-md-12 profile-picture"/>
           {{/if}}
+          <p class="text-center"><b>{{getUsername}}</b></p>
+          <p class=""><i class="mdi-social-location-city"></i></p>
+          <p class=""><i class="mdi-social-cake"></i></p>
+          <p class=""><i class="mdi-social-school"></i></p>
         </div>
-        <div class="col-md-4" id="followers">
-          {{#if getNbFollowers}}
-          <p class="text-center">
-            {{getNbFollowers}}<br>followers
-          </p>
+        <div>
+          <div class="col-md-12" id="description">
+            {{#if getUserInfos.description}}
+            <p class="text-center">
+              {{getUserInfos.description}}
+            </p>
           {{else}}
-          <p class="text-center">
-            0<br>followers
-          </p>
+            <p class="text-center">
+              ({{getUsername}} hasn't a description)
+            </p>
           {{/if}}
-        </div>
-        <div class="col-md-4" id="following">
-          {{#if getNbFollowing}}
-          <p class="text-center">
-            {{getNbFollowing}}<br>following
-          </p>
-          {{else}}
-          <p class="text-center">
-           0<br>following
-          </p>
-          {{/if}}
+          </div>
+          <div class="col-md-4" id="post">
+            {{#if getNbPostsFromSelectedUser}}
+            <p class="text-center">
+              {{getNbPostsFromSelectedUser}}<br>posts
+            </p>
+            {{else}}
+            <p class="text-center">
+              0<br>posts
+            </p>
+            {{/if}}
+          </div>
+          <div class="col-md-4" id="followers">
+            {{#if getNbFollowers}}
+            <p class="text-center">
+              {{getNbFollowers}}<br>followers
+            </p>
+            {{else}}
+            <p class="text-center">
+              0<br>followers
+            </p>
+            {{/if}}
+          </div>
+          <div class="col-md-4" id="following">
+            {{#if getNbFollowing}}
+            <p class="text-center">
+              {{getNbFollowing}}<br>following
+            </p>
+            {{else}}
+            <p class="text-center">
+             0<br>following
+            </p>
+            {{/if}}
+          </div>
         </div>
       </div>
     </div>

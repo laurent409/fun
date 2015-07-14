@@ -1,8 +1,15 @@
 <template name="navbar">
   <div class="navbar navbar-inverse">
       <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">S.Network</a>
+        </div>
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">S.Network</a>
                 {{#if getConnectedUser}}
                 <a class="navbar-brand" href="/dashboard"><span class="glyphicon glyphicon-home"></span></a>
                 <!-- <input type="text" name="name" placeholder="search user"> -->

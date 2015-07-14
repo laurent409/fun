@@ -13,7 +13,7 @@ Template.profile.helpers({
     },
 
     getUserInfos: function() {
-        console.log(Meteor.users.findOne({username: Router.current().params.username}));
+        // console.log(Meteor.users.findOne({username: Router.current().params.username}));
         return Meteor.users.findOne({username: Router.current().params.username});
     },
 
@@ -69,7 +69,7 @@ Template.profile.helpers({
             callback: function(error, photo) {
 
                 var image = photo.src;
-                console.log(image);
+                // console.log(image);
                 var user = {
                     description: $('description').val(),
                     urlAvatar: image
@@ -118,60 +118,60 @@ Template.profile.events({
                 alert(error.reason);
             }
         });
+    },
+
+    "click #follow": function() {
+
+        var usernameInUrl = Router.current().params.username;
+
+        var followers = Meteor.users.findOne({ username: usernameInUrl });
+        var following = Meteor.users.findOne({ _id: Meteor.userId() });
+
+        var relatedUsers = {
+            followedUserId: followers._id,
+            followingUserId: Meteor.userId(),
+            followers: followers,
+            following: following
+        };
+
+        Meteor.call('followUser', relatedUsers, function(error) {
+            if (error)
+                alert(error.reason);
+        });
+
+    },
+
+    "click #like": function() {
+
+        var postId = this._id;
+
+        var post = {
+            _id: postId,
+            likesUserId: this.likesUserId
+        };
+
+        Meteor.call('likePostOnProfile', post, function(error) {
+            if (error)
+                alert(error.reason);
+        });
+    },
+
+    "click #delete": function() {
+
+        var posts = this._id;
+
+        swal({
+            title: "Do you really want to delete this post ?",
+            text: "",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Delete",
+            cancelButtonText: "Cancel",
+            closeOnConfirm: true
+        }, function(){
+            Posts.remove(posts);
+        });
     }
 
-//     "click #follow": function() {
-//
-//         var usernameInUrl = Router.current().params.username;
-//
-//         var followers = Meteor.users.findOne({ username: usernameInUrl });
-//         var following = Meteor.users.findOne({ _id: Meteor.userId() });
-//
-//         var relatedUsers = {
-//             followedUserId: followers._id,
-//             followingUserId: Meteor.userId(),
-//             followers: followers,
-//             following: following
-//         };
-//
-//         Meteor.call('followUser', relatedUsers, function(error) {
-//             if (error)
-//                 alert(error.reason);
-//         });
-//
-//     },
-//
-//     "click #like": function() {
-//
-//         var postId = this._id;
-//
-//         var post = {
-//             _id: postId,
-//             likesUserId: this.likesUserId
-//         };
-//
-//         Meteor.call('likePostOnProfile', post, function(error) {
-//             if (error)
-//                 alert(error.reason);
-//         });
-//     },
-//
-//     "click #delete": function() {
-//
-//         var posts = this._id;
-//
-//         swal({
-//             title: "Do you really want to delete this post ?",
-//             text: "",
-//             type: "warning",
-//             showCancelButton: true,
-//             confirmButtonColor: "#DD6B55",
-//             confirmButtonText: "Supprimer",
-//             cancelButtonText: "Annuler",
-//             closeOnConfirm: true
-//         }, function(){
-//             Posts.remove(posts);
-//         });
-//     }
-//
 });

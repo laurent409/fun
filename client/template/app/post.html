@@ -1,42 +1,40 @@
 <template name="post">
   <div class="jumbotron col-md-8 col-md-offset-2">
-    <a href="{{ pathFor 'profile' username=author}}">
-        <div class="timeline_photo">
+        <div class="dashboard_profile-picture-post">
+          <a href="{{ pathFor 'profile' username=author}}">
             {{#if checkPicture}}
-                <img src="photos/default-user.png" alt="minitiature_photo" class="mini_photo"/>
+                <img src="/pictures/default-user.png" alt="minitiature_photo" class="profile-picture-post"/>
             {{else}}
-                <img src="{{getUserInfo.urlAvatar}}" alt="minitiature_photo" class="mini_photo" />
+                <img src="{{getUserInfo.urlAvatar}}" alt="minitiature_photo" class="profile-picture-post" />
             {{/if}}
+            </a>
+            <h2 class="post_name"><a href="{{ pathFor 'profile' username=author}}">{{author}}</a></h2>
         </div>
-    </a>
 
-    <div class="post_home">
-      <h1 class="post_name"><a href="{{ pathFor 'profile' username=author}}">{{author}}</a></h1>
-      <h2 class="time italique">{{livestamp submitted}}</h2>
-      <div class="post_text">
-          <p class="post_content">{{content}}</p>
-      </div>
-      {{#if ownPost}}
-          <a href="#" id="delete" class="a_blue">
-              <div class="delete_profile">
-                  <p class="bold">Delete</p>
-              </div>
-          </a>
-      {{else}}
-          {{#if alreadyLiked}}
-              <a href="#" id="like" class="a_blue">
-                  <div class="dislike_profile">
-                      <p class="bold">{{nbLikes}}</p>
-                  </div>
-              </a>
-          {{else}}
-              <a href="#" id="like" class="a_blue">
-                  <div class="like_profile">
-                      <p class="bold">{{nbLikes}}</p>
-                  </div>
-              </a>
-          {{/if}}
-      {{/if}}
+    <p class="">{{livestamp submitted}}</p>
+    <div class="post_text">
+        <p class="post_content">{{content}}</p>
     </div>
+    {{#if ownPost}}
+        <a href="#" id="delete" class="a_blue">
+            <div class="delete_profile">
+                <p class="bold">Delete</p>
+            </div>
+        </a>
+    {{else}}
+        {{#if alreadyLiked}}
+            <a href="#" id="like" class="a_blue">
+                <div class="dislike_profile">
+                    <p class="bold">{{nbLikes}}</p>
+                </div>
+            </a>
+        {{else}}
+            <a href="#" id="like" class="a_blue">
+                <div class="like_profile">
+                    <p class="bold">{{nbLikes}}</p>
+                </div>
+            </a>
+        {{/if}}
+    {{/if}}
   </div>
 </template>

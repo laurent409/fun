@@ -25,8 +25,8 @@ Template.post.events({
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",
-            confirmButtonText: "Supprimer",
-            cancelButtonText: "Annuler",
+            confirmButtonText: "Delete",
+            cancelButtonText: "Cancel",
             closeOnConfirm: true
         }, function(){
             Posts.remove(posts);

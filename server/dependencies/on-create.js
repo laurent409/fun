@@ -1,6 +1,6 @@
 Accounts.onCreateUser(function(option, user) {
 
-    user.description = "My own description";
+    user.description = "";
     user.followers = [];
     user.following = [];
     user.nbFollowers = 0;

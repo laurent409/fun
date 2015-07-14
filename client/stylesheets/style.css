@@ -16,3 +16,15 @@
 .icon-settings{
   margin-top: 6px;
 }
+.profile-picture {
+  height: 120px;
+  width: 150px;
+}
+.profile-picture-post{
+  height: 40px;
+  width: 40px;
+}
+.dashboard_profile-picture-post {
+  height: 45px;
+  width: 45px;
+}
