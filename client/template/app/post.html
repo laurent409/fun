@@ -8,10 +8,10 @@
                 <img src="{{getUserInfo.urlAvatar}}" alt="minitiature_photo" class="profile-picture-post" />
             {{/if}}
             </a>
-            <h2 class="post_name"><a href="{{ pathFor 'profile' username=author}}">{{author}}</a></h2>
         </div>
 
-    <p class="">{{livestamp submitted}}</p>
+    <h2 class="post_name"><a href="{{ pathFor 'profile' username=author}}">{{author}}</a></h2>
+    <i>{{livestamp submitted}}</i>
     <div class="post_text">
         <p class="post_content">{{content}}</p>
     </div>
@@ -25,13 +25,13 @@
         {{#if alreadyLiked}}
             <a href="#" id="like" class="a_blue">
                 <div class="dislike_profile">
-                    <p class="bold">{{nbLikes}}</p>
+                    <p class="bold">{{nbLikes}}<i class="mdi-navigation-cancel"></i></p>
                 </div>
             </a>
         {{else}}
             <a href="#" id="like" class="a_blue">
                 <div class="like_profile">
-                    <p class="bold">{{nbLikes}}</p>
+                    <p class="bold">{{nbLikes}}<i class="mdi-social-plus-one"></i></p>
                 </div>
             </a>
         {{/if}}
