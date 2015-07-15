@@ -10,7 +10,7 @@
   color: #E1E3F3;
   padding-top: 0.5%;
 }
-.icon-navbar{
+.icon-navbar {
   margin-top: 4px;
 }
 .icon-settings{
@@ -20,11 +20,37 @@
   height: 120px;
   width: 150px;
 }
-.profile-picture-post{
+.profile-picture-post {
   height: 40px;
   width: 40px;
 }
 .dashboard_profile-picture-post {
   height: 45px;
   width: 45px;
+}
+/*
+.photo-up {
+  height: 120px;
+  width: 150px;
+}*/
+
+.card-image {
+  height: 300px !important;
+  width: 350px !important;
+  /*margin-left: 40px !important;*/
+}
+.card {
+  height: 300px !important;
+  width: 350px !important;
+  margin-left: 40px !important;
+}
+.no-content {
+  height: 300px !important;
+  width: 350px !important;
+  margin-left: 40px !important;
+}
+.dropbox {
+  height: 300px !important;
+  width: 350px !important;
+  margin-left: 40px !important;
 }
