@@ -7,6 +7,7 @@ This is a social network built with meteor js
 
 [BUGS]
  - navbar not fixed
+ - delete post : access rights error
  - database doesn't access rights on production demo server
 
 [DONE]
@@ -22,6 +23,5 @@ This is a social network built with meteor js
 [BACKLOG]
  - add chat
  - update post
- - delete post
- - create & delete comment module
- - design post
+ - CRUD comment module
+ - design post (profile name next to profile picture)
