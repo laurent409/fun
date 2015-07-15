@@ -3,16 +3,25 @@ This is a social network built with meteor js
 
 [FIXED]
  - myprofile & profile routes
+ - post from an other profile
 
-[IN PROCESS]
- - myprofile editing (informations)
+[BUGS]
+ - navbar not fixed
+ - delete post : access rights error
+ - database doesn't access rights on production demo server
+
+[DONE]
+ - create post
  - myprofile information consultation
  - profile information consultation
+ - add like module 
+ - myprofile picture (prototype)
+
+[IN PROCESS]
+ - settings : myprofile editing (informations)
 
 [BACKLOG]
- - myprofile picture (prototype)
- - create post
+ - add chat
  - update post
- - delete post
- - add like module
- - create - delete comment module
+ - CRUD comment module
+ - design post (profile name next to profile picture)
