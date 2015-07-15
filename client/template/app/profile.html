@@ -1,12 +1,15 @@
 <template name="profile">
   <div class="container">
     <div class="col-md-8">
+      {{#if ownProfile}}
       <div class="jumbotron col-md-12">
         <form class="" id="profile_submit_post" action="#" method="get">
           <input type="text" class="jumbotron form-control col-md-8" id="content_profile" name="postFromProfil" placeholder="hey {{getConnectedUser}}, what's on you mind ?">
           <input type="button" class="btn btn-primary col-md-4" id="profile_click_post"  value="let's post !">
         </form>
       </div>
+      {{/if}}
+
       {{#each getPosts}}
         <div class="jumbotron col-md-12">
           <div class="profile_gabs background_radius content_shadow">

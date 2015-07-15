@@ -9,29 +9,30 @@
             {{/if}}
             </a>
         </div>
-
-    <h2 class="post_name"><a href="{{ pathFor 'profile' username=author}}">{{author}}</a></h2>
-    <i>{{livestamp submitted}}</i>
+    <div class="">
+        <h3 class="post_name"><a href="{{ pathFor 'profile' username=author}}">{{author}}</a></h3>
+        <i>{{livestamp submitted}}</i>
+    </div>
     <div class="post_text">
         <p class="post_content">{{content}}</p>
     </div>
     {{#if ownPost}}
         <a href="#" id="delete" class="a_blue">
             <div class="delete_profile">
-                <p class="bold">Delete</p>
+                <p>Delete</p>
             </div>
         </a>
     {{else}}
         {{#if alreadyLiked}}
             <a href="#" id="like" class="a_blue">
                 <div class="dislike_profile">
-                    <p class="bold">{{nbLikes}}<i class="mdi-navigation-cancel"></i></p>
+                  <p class="col-md-4">{{nbLikes}}<i class="mdi-navigation-cancel"></i> likes</p>
                 </div>
             </a>
         {{else}}
             <a href="#" id="like" class="a_blue">
                 <div class="like_profile">
-                    <p class="bold">{{nbLikes}}<i class="mdi-social-plus-one"></i></p>
+                    <p class="col-md-4">{{nbLikes}}<i class="mdi-social-plus-one"></i> likes</p>
                 </div>
             </a>
         {{/if}}
