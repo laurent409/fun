@@ -26,13 +26,15 @@
         {{#if alreadyLiked}}
             <a href="#" id="like" class="a_blue">
                 <div class="dislike_profile">
-                  <p class="col-md-4">{{nbLikes}}<i class="mdi-navigation-cancel"></i> likes</p>
+                  <!-- <p class="col-md-4">{{nbLikes}}<i class="mdi-navigation-cancel"></i> likes</p> -->
+                  <p class="col-md-4">{{nbLikes}}<i class="fa fa-arrow-down"></i></p>
                 </div>
             </a>
         {{else}}
             <a href="#" id="like" class="a_blue">
                 <div class="like_profile">
-                    <p class="col-md-4">{{nbLikes}}<i class="mdi-social-plus-one"></i> likes</p>
+                  <!-- <p class="col-md-4">{{nbLikes}}<i class="mdi-social-plus-one"></i> likes</p> -->
+                  <p class="col-md-4">{{nbLikes}}<i class="fa fa-arrow-up"></i></p>
                 </div>
             </a>
         {{/if}}
