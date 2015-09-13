@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/laurent409/fun.png?label=ready&title=Ready)](https://waffle.io/laurent409/fun)
 # fun
 This is a social network built with meteor js
 
